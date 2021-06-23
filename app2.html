@@ -1,0 +1,65 @@
+<script>
+function run(){
+var command = document.getElementById("com").value
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://192.168.43.195/cgi-bin/code.py?command="+ command , true)
+xhr.send()
+xhr.onload = function (){
+var out=xhr.responseText;
+document.getElementById("out").innerHTML=out;
+}
+}
+</script>
+<html>
+<head>
+<style>
+body {
+  background-image: url('https://i.pinimg.com/originals/63/7a/4d/637a4d42e1738853b2f96ffbbd60622a.gif');
+    background-repeat: no-repeat;
+      background-attachment: fixed;
+        background-size: cover;
+}
+.header {
+  padding: 8px;
+    text-align: center;
+      color: white;
+  font-size: 25px;
+}
+.myDiv {
+   background-color: white;
+    text-align: center;
+     font-size: 40px;
+      color: black;
+         border: 5px outset blue;
+}
+.op {
+ text-align: center;
+  font-size: 25px;
+   color: white;
+}
+</style>
+ </head>
+ <body>
+ <div class="header">
+   <h1>Docker WeB Application</h1>
+ </div>
+ </br>
+ </br>
+ <div style="text-align:center;">
+ [root@Host$] <input id='com' type='text' size="30">
+ </div>
+ </br>
+ </br>
+ <div style="text-align:center;">
+ <b><h1><button style="background-color: FFFF00; box-shadow: 0 8px; padding:12px 28px; border-radius: 8px;" onclick="run()" class="button"> RUN </button></h1></b>
+ </div>
+                 <div class='op'>
+ <h2>Output</h2>
+ </div>
+ <pre>
+ <div class="myDiv" id='out'>
+ </div>
+ </pre>
+
+ </body>
+ </html>
